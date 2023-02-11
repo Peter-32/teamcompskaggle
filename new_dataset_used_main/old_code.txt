@@ -1,0 +1,6 @@
+for x in ['is_support', 'is_glass_cannon', 'is_tank', 'is_chase_runners']:
+    print(f"""{x}_dict_team1 = df.loc[df['player'].isin([1,2,3,4,5])].groupby(['matchid'])['{x}'].sum().to_dict()
+match_df['team_1_{x}s'] = match_df['matchid'].apply(lambda x: {x}_dict_team1.get(x, -1))
+{x}_dict_team2 = df.loc[df['player'].isin([6,7,8,9,10])].groupby(['matchid'])['{x}'].sum().to_dict()
+match_df['team_2_{x}s'] = match_df['matchid'].apply(lambda x: {x}_dict_team2.get(x, -1))
+""")
